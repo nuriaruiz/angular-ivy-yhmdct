@@ -10,7 +10,7 @@ import { IBanner } from './types/banner-data';
     styleUrls: ['./banner.component.scss'],
 })
 export class BannerComponent implements OnInit, OnDestroy{
-    bannerImage!: string;
+    bannerImage!: SafeStyle;
     
     errorMessage!: string;
     showLoading = true;
@@ -24,7 +24,9 @@ export class BannerComponent implements OnInit, OnDestroy{
         this.banner$ = this.bannerService.getBanner()
         .subscribe({
             next: (banner) => {
-                this.bannerImage = banner.data
+                this.bannerImage = this.sanitizer.bypassSecurityTrustStyle(
+                    `url('data:image/png;base64, ${banner.data}')`
+                );
             },
             error: (error) => {
                 console.log('error '+error);
