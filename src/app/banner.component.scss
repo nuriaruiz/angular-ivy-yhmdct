@@ -1,0 +1,29 @@
+.banner-section {
+    height: 100%;
+
+    &__header {
+        color: $background-dark-blue;
+        margin-bottom: 10px;
+    }
+
+    .banner-content {
+        height: 100%;
+        background-size: contain !important;
+        background-repeat: no-repeat !important;
+    }
+
+    .loading {
+        @include flex(center, center);
+    }
+
+    .banner-error {
+        background: $color9 url('/assets/error-icon.svg') 8px 7px no-repeat;
+        border: 1px solid #a02525;
+        padding: 8px 0 8px 40px;
+        margin-bottom: 10px;
+        color: white;
+        border-radius: 2px;
+        margin-right: 20px;
+        width: 500px;
+    }
+}
