@@ -2,7 +2,6 @@
 <h3 class="banner-section__header">News</h3>
 
 <div class="banner-content" [style.background]="bannerImage" *ngIf="!errorMessage"></div>
-<img src="bannerImage">
 <div class="banner-error" *ngIf="errorMessage">
     {{ errorMessage }}
 </div>
